@@ -1,149 +1,161 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
-
-    
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-  
     <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
     <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
-    
-    
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
-
     <title>EduLog</title>
-  </head>
-  <body>
+</head>
+<body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../index/index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../weekpage/index.html">week</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../monthpage/index.html">Month</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../settingpage/settingpage.html">Setting</a></li>
-                <li><a class="dropdown-item" href="#">search</a></li>
-                <li><a class="dropdown-item" href="../index/loginpage.html">Log in</a></li>
-              </ul>
-            </li>
-          </ul>
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../weekpage/index.html">week</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class "nav-link" href="../monthpage/index.html">Month</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../settingpage/settingpage.html">Setting</a></li>
+                            <li><a class="dropdown-item" href="#">search</a></li>
+                            <li><a class="dropdown-item" href="../index/loginpage.html">Log in</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-  <div class="content">
-    <div id='calendar'></div>
-  </div>
-    
-    
+    <div class="content">
+        <div id='calendar'></div>
+    </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
     <script src='fullcalendar/packages/core/main.js'></script>
     <script src='fullcalendar/packages/interaction/main.js'></script>
     <script src='fullcalendar/packages/daygrid/main.js'></script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'interaction', 'dayGrid' ],
-      defaultDate: '2023-10-27',
-      editable: true,
-      eventLimit: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2023-10-27'
-        },
-        {
-          title: 'Long Event',
-          start: '2023-10-28',
-          end: '2023-10-28'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2023-10-7T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2023-10-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2023-10-11',
-          end: '2023-10-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2023-10-12T10:30:00',
-          end: '2023-10-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2023-10-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2023-10-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2023-10-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2023-10-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2023-10-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2023-10-28'
-        }
-      ]
-    });
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['interaction', 'dayGrid'],
+                defaultDate: '2023-10-27',
+                editable: true,
+                eventLimit: true,
+                events: [
+                    {
+                        title: 'All Day Event',
+                        start: '2023-10-27'
+                    },
+                    {
+                        title: 'Long Event',
+                        start: '2023-10-28',
+                        end: '2023-10-28'
+                    },
+                    {
+                        groupId: 999,
+                        title: 'Repeating Event',
+                        start: '2023-10-7T16:00:00'
+                    },
+                    {
+                        groupId: 999,
+                        title: 'Repeating Event',
+                        start: '2023-10-16T16:00:00'
+                    },
+                    {
+                        title: 'Conference',
+                        start: '2023-10-11',
+                        end: '2023-10-13'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2023-10-12T10:30:00',
+                        end: '2023-10-12T12:30:00'
+                    },
+                    {
+                        title: 'Lunch',
+                        start: '2023-10-12T12:00:00'
+                    },
+                    {
+                        title: 'Meeting',
+                        start: '2023-10-12T14:30:00'
+                    },
+                    {
+                        title: 'Happy Hour',
+                        start: '2023-10-12T17:30:00'
+                    },
+                    {
+                        title: 'Dinner',
+                        start: '2023-10-12T20:00:00'
+                    },
+                    {
+                        title: 'Birthday Party',
+                        start: '2023-10-13T07:00:00'
+                    },
+                    {
+                        title: 'Click for Google',
+                        url: 'http://google.com/',
+                        start: '2023-10-28'
+                    }
+                ],
+                dateClick: function (info) {
+                    var title = prompt('일정 제목:');
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: info.dateStr
+                        });
+                    }
+                },
+                eventClick: function (info) {
+                    var confirmation = prompt('이벤트를 수정, 삭제 또는 취소하시겠습니까? (수정/삭제/취소)');
+                    if (confirmation === '수정') {
+                        var newTitle = prompt('새로운 일정 제목:');
+                        if (newTitle) {
+                            info.event.setProp('title', newTitle);
+                        }
+                    } else if (confirmation === '삭제') {
+                        info.event.remove();
+                    } else if (confirmation === '취소') {
+                        // 아무 작업도 수행하지 않음
+                    }
+                }
+            });
 
-    calendar.render();
-  });
-
+            calendar.render();
+        });
     </script>
 
     <script src="js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
 </html>
