@@ -33,4 +33,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
+    document.querySelectorAll('.editable').forEach(function(element) {
+      element.addEventListener('blur', function() {
+        alert('수정된 내용: ' + this.textContent);
+      });
+    });
+    
+
+
+function updateClock() {
+  const now = new Date();
+  const clockElement = document.getElementById('live-clock');
+  clockElement.textContent = now.toLocaleTimeString();
+  setTimeout(updateClock, 1000); 
+}
+
+
+document.addEventListener('DOMContentLoaded', updateClock);
