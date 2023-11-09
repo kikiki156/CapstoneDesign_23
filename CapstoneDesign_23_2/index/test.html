@@ -47,10 +47,8 @@
 <div class="checklist" style="display: inline-flex; flex-direction: row; justify-content: center;">
   <div class="flex-item">
     <div class="row" style="text-align: center;" id="checklist-container">
-      <div class="container">
-        체크리스트
-      </div>
-      <div class="container">
+      <p>체크리스트</p>
+      <div class="cklist">
         <input type="checkbox"> <input type="text" name="st_name">
         <span class="delete-btn" onclick="deleteChecklistItem(this)">삭제하기</span>
       </div>
@@ -61,17 +59,17 @@
 
 <script>
   function addChecklistItem() {
-    var container = document.getElementById('checklist-container');
+    var cklist = document.getElementById('checklist-container');
     var newItem = document.createElement('div');
-    newItem.classList.add('container');
+    newItem.classList.add('cklist');
     newItem.innerHTML = '<input type="checkbox"> <input type="text" name="st_name"> <span class="delete-btn" onclick="deleteChecklistItem(this)">삭제하기</span>';
-    container.insertBefore(newItem, container.lastChild);
+    cklist.insertBefore(newItem, cklist.lastChild);
   }
 
   function deleteChecklistItem(element) {
-    var container = document.getElementById('checklist-container');
+    var cklist = document.getElementById('checklist-container');
     var itemToDelete = element.parentNode;
-    container.removeChild(itemToDelete);
+    cklist.removeChild(itemToDelete);
   }
 </script>
 
