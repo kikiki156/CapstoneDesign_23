@@ -15,6 +15,32 @@
         text-align: center;
       }
     </style>
+    <script>
+      function addSubject() {
+        var table = document.getElementById("subjectTable");
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+
+        var select = document.createElement("select");
+        var options = ["국어", "수학", "영어", "과학", "사회", "체육"];
+        for (var i = 0; i < options.length; i++) {
+          var option = document.createElement("option");
+          option.text = options[i];
+          select.add(option);
+        }
+
+        cell1.appendChild(select);
+        cell2.innerHTML = '<input type="number" value="0" min="0">';
+      }
+
+      function removeSubject() {
+        var table = document.getElementById("subjectTable");
+        if (table.rows.length > 1) {
+          table.deleteRow(-1);
+        }
+      }
+    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
@@ -65,7 +91,7 @@
       
       <!-- 2. 시수 설정할 수 있는 기능 (과목 - 시수) -->
       <h2>2. 시수 설정</h2>
-      <table>
+      <table id="subjectTable">
         <tr>
           <th>과목</th>
           <th>시수</th>
@@ -78,48 +104,9 @@
           </td>
           <td><input type="number" value="0" min="0"></td>
         </tr>
-        <tr>
-          <td>
-            <select>
-              <option value="수학">수학</option>
-            </select>
-          </td>
-          <td><input type="number" value="0" min="0"></td>
-        </tr>
-        <tr>
-          <td>
-            <select>
-              <option value="영어">영어</option>
-            </select>
-          </td>
-          <td><input type="number" value="0" min="0"></td>
-        </tr>
-        <tr>
-          <td>
-            <select>
-              <option value="과학">과학</option>
-            </select>
-          </td>
-          <td><input type="number" value="0" min="0"></td>
-        </tr>
-        <tr>
-          <td>
-            <select>
-              <option value="사회">사회</option>
-            </select>
-          </td>
-          <td><input type="number" value="0" min="0"></td>
-        </tr>
-        <tr>
-          <td>
-            <select>
-              <option value="체육">체육</option>
-            </select>
-          </td>
-          <td><input type="number" value="0" min="0"></td>
-        </tr>
       </table>
-      <button type="button" class="btn btn-primary">저장</button>
+      <button type="button" class="btn btn-primary" onclick="addSubject()">과목 추가</button>
+      <button type="button" class="btn btn-danger" onclick="removeSubject()">과목 제거</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
