@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -46,13 +46,82 @@
         </div>
       </div>
     </nav>
-    <div class="container" style="display: inline-flex; flex-direction: row; justify-content: center;">
-      <div>This is settingpage.</div>
-      <div>일반 설정-알림 허용/거부,알림시 진동-허용/거부, </div>
-      <div>시수 설정할 수 있는 기능도 추가할 예정(과목-시수,과목-시수•••)</div>
+    <div class="container">
+      <h1>This is settingpage.</h1>
+      
+      <!-- 1. 일반 설정 - 알림 허용/거부, 알림 시 진동 - 허용/거부 -->
+      <h2>1. 일반 설정</h2>
+      <form>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="allowNotifications">
+          <label class="form-check-label" for="allowNotifications">알림 허용</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="vibrateOnNotifications">
+          <label class="form-check-label" for="vibrateOnNotifications">알림 시 진동 허용</label>
+        </div>
+        <button type="button" class="btn btn-primary">저장</button>
+      </form>
+      
+      <!-- 2. 시수 설정할 수 있는 기능 (과목 - 시수) -->
+      <h2>2. 시수 설정</h2>
+      <table>
+        <tr>
+          <th>과목</th>
+          <th>시수</th>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option value="국어">국어</option>
+            </select>
+          </td>
+          <td><input type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option value="수학">수학</option>
+            </select>
+          </td>
+          <td><input type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option value="영어">영어</option>
+            </select>
+          </td>
+          <td><input type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option value="과학">과학</option>
+            </select>
+          </td>
+          <td><input type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option value="사회">사회</option>
+            </select>
+          </td>
+          <td><input type="number" value="0" min="0"></td>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option value="체육">체육</option>
+            </select>
+          </td>
+          <td><input type="number" value="0" min="0"></td>
+        </tr>
+      </table>
+      <button type="button" class="btn btn-primary">저장</button>
     </div>
 
-    </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    </body>
-    </html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
