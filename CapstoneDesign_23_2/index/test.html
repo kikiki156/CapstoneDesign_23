@@ -47,29 +47,32 @@
 <div class="checklist" style="display: inline-flex; flex-direction: row; justify-content: center;">
   <div class="flex-item">
     <div class="row" style="text-align: center;" id="checklist-container">
-      <p>체크리스트</p>
-      <div class="cklist">
-        <input type="checkbox"> <input type="text" name="st_name">
-        <span class="delete-btn" onclick="deleteChecklistItem(this)">삭제하기</span>
+      <div class="container">
+        체크리스트
       </div>
-      <button onclick="addChecklistItem()">추가하기</button>
+      <div class="container">
+        <input type="checkbox"> <input type="text" name="st_name"> <span class="delete-btn" onclick="deleteChecklistItem(this)">삭제하기</span>
+      </div>
     </div>
+    <button onclick="addChecklistItem()">추가하기</button>
   </div>
 </div>
 
 <script>
+  var itemCount = 1;
+
   function addChecklistItem() {
-    var cklist = document.getElementById('checklist-container');
+    var container = document.getElementById('checklist-container');
     var newItem = document.createElement('div');
-    newItem.classList.add('cklist');
+    newItem.classList.add('container');
     newItem.innerHTML = '<input type="checkbox"> <input type="text" name="st_name"> <span class="delete-btn" onclick="deleteChecklistItem(this)">삭제하기</span>';
-    cklist.insertBefore(newItem, cklist.lastChild);
+    container.insertBefore(newItem, container.lastElementChild);
   }
 
   function deleteChecklistItem(element) {
-    var cklist = document.getElementById('checklist-container');
+    var container = document.getElementById('checklist-container');
     var itemToDelete = element.parentNode;
-    cklist.removeChild(itemToDelete);
+    container.removeChild(itemToDelete);
   }
 </script>
 
