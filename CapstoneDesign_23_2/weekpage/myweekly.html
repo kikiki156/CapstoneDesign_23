@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>주간 학교 시간표</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  select {
+    width: 100%;
+    padding: 5px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+</style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../weekpage/index.html">week</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../monthpage/index.html">Month</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../settingpage/settingpage.html">Setting</a></li>
+                  <li><a class="dropdown-item" href="#">search</a></li>
+                  <li><a class="dropdown-item" href="../index/loginpage.html">Log in</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+<h2>주간 시간표</h2>
+
+<table id="scheduleTable">
+  <tr>
+    <th></th>
+    <th>월</th>
+    <th>화</th>
+    <th>수</th>
+    <th>목</th>
+    <th>금</th>
+  </tr>
+  <tr>
+    <td>1교시</td>
+    <td class="subject" data-day="monday1">국어</td>
+    <td class="subject" data-day="tuesday1">영어</td>
+    <td class="subject" data-day="wednesday1">수학</td>
+    <td class="subject" data-day="thursday1">사회</td>
+    <td class="subject" data-day="friday1">과학</td>
+  </tr>
+  <tr>
+    <td>2교시</td>
+    <td class="subject" data-day="monday1">영어</td>
+    <td class="subject" data-day="tuesday1">수학</td>
+    <td class="subject" data-day="wednesday1">사회</td>
+    <td class="subject" data-day="thursday1">과학</td>
+    <td class="subject" data-day="friday1">국어</td>
+  </tr>
+  <tr>
+    <td>3교시</td>
+    <td class="subject" data-day="monday1">수학</td>
+    <td class="subject" data-day="tuesday1">사회</td>
+    <td class="subject" data-day="wednesday1">과학</td>
+    <td class="subject" data-day="thursday1">국어</td>
+    <td class="subject" data-day="friday1">영어</td>
+  </tr>
+  <tr>
+    <td>4교시</td>
+    <td class="subject" data-day="monday1">과학</td>
+    <td class="subject" data-day="tuesday1">국어</td>
+    <td class="subject" data-day="wednesday1">영어</td>
+    <td class="subject" data-day="thursday1">수학</td>
+    <td class="subject" data-day="friday1">사회</td>
+  </tr>
+  <tr>
+    <td>5교시</td>
+    <td class="subject" data-day="monday1">한문</td>
+    <td class="subject" data-day="tuesday1">미술</td>
+    <td class="subject" data-day="wednesday1">체육</td>
+    <td class="subject" data-day="thursday1">쓰기</td>
+    <td class="subject" data-day="friday1">기술</td>
+  </tr>
+  <tr>
+    <td>6교시</td>
+    <td class="subject" data-day="monday1">가정</td>
+    <td class="subject" data-day="tuesday1">음악</td>
+    <td class="subject" data-day="wednesday1">한문</td>
+    <td class="subject" data-day="thursday1">기술</td>
+    <td class="subject" data-day="friday1">쓰기</td>
+  </tr>
+  <tr>
+    <td>7교시</td>
+    <td class="subject" data-day="monday1"></td>
+    <td class="subject" data-day="tuesday1">수학</td>
+    <td class="subject" data-day="wednesday1"></td>
+    <td class="subject" data-day="thursday1">영어</td>
+    <td class="subject" data-day="friday1"></td>
+  </tr>
+</table>
+
+<button id="editModeButton">수정</button>
+<div id="editInstructions" style="display: none;">수정할 항목을 고르세요</div>
+<input type="text" id="editInput" style="display: none;">
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
