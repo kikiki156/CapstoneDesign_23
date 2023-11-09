@@ -20,6 +20,10 @@
       padding: 10px;
       text-align: center;
     }
+
+    input[type="checkbox"]:checked + input[type="text"] {
+      text-decoration: line-through;
+    }
   </style>
 </head>
 
@@ -37,7 +41,7 @@
             <a class="nav-link active" aria-current="page" href="../index/index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../weekpage/index.html">week</a>
+            <a class="nav-link" href="../weekpage/myweekly.html">week</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../monthpage/index.html">Month</a>
@@ -54,7 +58,7 @@
       </div>
     </div>
   </nav>
-  <div class="container" style="display: inline-flex; flex-direction: row; justify-content: center;">
+  <div class="dailytimetable" style="display: inline-flex; flex-direction: row; justify-content: center;">
     <div class="flex-item" style="background-color: aqua;">
       daily timetable
       <table>
@@ -72,6 +76,7 @@
               <option value="2">수학</option>
               <option value="3">사회</option>
               <option value="4">과학</option>
+              <option value="5">공강</option>
             </select>
           </td>
           <td>
@@ -84,7 +89,7 @@
           </td>
           <td>
             <div class="container">
-              <input type="text" name="st_name">
+              <input type="checkbox" name="xxx" value="yyy"><input type="text" name="st_name">
             </div>
           </td>
         </tr>
@@ -96,6 +101,8 @@
               <option value="2">수학</option>
               <option value="3">사회</option>
               <option value="4">과학</option>
+              <option value="5">공강</option>
+              
             </select>
           </td>
           <td>
@@ -106,7 +113,11 @@
               <option value="4">1-4</option>
             </select>
           </td>
-          <td></td>
+          <td>
+            <div class="container">
+              <input type="checkbox" name="xxx" value="yyy"><input type="text" name="st_name">
+            </div>
+          </td>
         </tr>
         <tr>
           <td>3</td>
@@ -116,6 +127,7 @@
               <option value="2">수학</option>
               <option value="3">사회</option>
               <option value="4">과학</option>
+              <option value="5">공강</option>
             </select>
           </td>
           <td>
@@ -126,7 +138,11 @@
               <option value="4">1-4</option>
             </select>
           </td>
-          <td></td>
+          <td>
+            <div class="container">
+              <input type="checkbox" name="xxx" value="yyy"><input type="text" name="st_name">
+            </div>
+          </td>
         </tr>
         <tr>
           <td>4</td>
@@ -136,6 +152,7 @@
               <option value="2">수학</option>
               <option value="3">사회</option>
               <option value="4">과학</option>
+              <option value="5">공강</option>
             </select>
           </td>
           <td>
@@ -146,7 +163,11 @@
               <option value="4">1-4</option>
             </select>
           </td>
-          <td></td>
+          <td>
+            <div class="container">
+              <input type="checkbox" name="xxx" value="yyy"><input type="text" name="st_name">
+            </div>
+          </td>
         </tr>
         <tr>
           <td>5</td>
@@ -156,6 +177,7 @@
               <option value="2">수학</option>
               <option value="3">사회</option>
               <option value="4">과학</option>
+              <option value="5">공강</option>
             </select>
           </td>
           <td>
@@ -166,7 +188,11 @@
               <option value="4">1-4</option>
             </select>
           </td>
-          <td></td>
+          <td>
+            <div class="container">
+              <input type="checkbox" name="xxx" value="yyy"><input type="text" name="st_name">
+            </div>
+          </td>
         </tr>
         <tr>
           <td>6</td>
@@ -176,6 +202,7 @@
               <option value="2">수학</option>
               <option value="3">사회</option>
               <option value="4">과학</option>
+              <option value="5">공강</option>
             </select>
           </td>
           <td>
@@ -186,7 +213,11 @@
               <option value="4">1-4</option>
             </select>
           </td>
-          <td></td>
+          <td>
+            <div class="container">
+              <input type="checkbox" name="xxx" value="yyy"><input type="text" name="st_name">
+            </div>
+          </td>
         </tr>
         <tr>
           <td>7</td>
@@ -196,6 +227,7 @@
               <option value="2">수학</option>
               <option value="3">사회</option>
               <option value="4">과학</option>
+              <option value="5">공강</option>
             </select>
           </td>
           <td>
@@ -206,25 +238,41 @@
               <option value="4">1-4</option>
             </select>
           </td>
-          <td></td>
+          <td>
+            <div class="container">
+              <input type="checkbox" name="xxx" value="yyy"><input type="text" name="st_name">
+            </div>
+          </td>
         </tr>
       </table>
     </div>
   </div>
-  <div class="container" style="display: inline-flex; flex-direction: row; justify-content: center;">
+  <div class="checklist" style="display: inline-flex; flex-direction: row; justify-content: center;">
     <div class="flex-item" style="background-color: greenyellow; text-align: center;">
       <div class="row" style="text-align: center;">
-        <div class="container">
+        <div class="checklistinner">
           체크리스트
         </div>
-        <div class="container">
+        <div class="cklist">
           <input type="checkbox"> <input type="text" name="st_name">
         </div>
-        <div class="container">
-          123
+        <div class="cklist">
+          <input type="checkbox"> <input type="text" name="st_name">
         </div>
-        <div class="container">
-          123
+        <div class="cklist">
+          <input type="checkbox"> <input type="text" name="st_name">
+        </div>
+        <div class="cklist">
+          <input type="checkbox"> <input type="text" name="st_name">
+        </div>
+        <div class="cklist">
+          <input type="checkbox"> <input type="text" name="st_name">
+        </div>
+        <div class="cklist">
+          <input type="checkbox"> <input type="text" name="st_name">
+        </div>
+        <div class="cklist">
+          <input type="checkbox"> <input type="text" name="st_name">
         </div>
       </div>
     </div>
