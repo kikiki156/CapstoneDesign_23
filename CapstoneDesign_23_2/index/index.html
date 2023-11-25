@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,17 +9,189 @@
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link href="index.css" rel="stylesheet">
   <style>
-    table,th,td {
-      border: 1px solid black;
+    /* 화면크기 1920-1080, 1536-864, 1280-730, */
+    @media (max-width: 1554px) {
+      .flex-container {
+        display: inline-flex;
+      }
     }
 
-    th,td {
-      padding: 2px;
+    @media (max-width: 1024px) {
+      .flex-container {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .flex-container {
+        display: inline-flex;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .flex-container {
+        display: inline-flex;
+      }
+    }
+
+    .dailytimetable {
+      position: fixed;
+      top: 8%;
+      left: 10%;
+      width: 40%;
+      height: 63%;
+      margin: 0 auto;
       text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .checklist {
+      position: fixed;
+      top: 8%;
+      left: 55%;
+      width: 30%;
+      height: auto;
+      border: 1px solid black;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+      margin-left: 20px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .flex-item {
+      text-align: center;
+    }
+
+    .cklist {
+      display: flex;
+      align-items: center;
+      margin: 10px;
     }
 
     input[type="checkbox"]:checked + input[type="text"] {
       text-decoration: line-through;
+    }
+
+    .delete-btn {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .memo {
+      position: bottom;
+    }
+
+    /* 추가된 부분 */
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .container-fluid {
+      background-color: #000;
+    }
+
+    .navbar {
+      background-color: #000 !important;
+    }
+
+    .nav-link {
+      color: #fff !important;
+    }
+
+    .container {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+   
+
+    .user-message {
+      align-self: flex-start;
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    /* 추가된 부분 - 기능 버튼 디자인 */
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .action-button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 48%;
+    }
+
+    .action-button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
@@ -56,232 +228,253 @@
     </div>
   </nav>
   <div class="container">
-    <div class="dailytimetable" style="display: inline-flex; flex-direction: row; justify-content: center;">
-      <div class="flex-item"">
-        daily timetable
-      <table>
-        <tr>
-          <th>time</th>
-          <th>subject</th>
-          <th>classroom</th>
-          <th>memo</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>
-            <select>
-              <option value="1">국어</option>
-              <option value="2">수학</option>
-              <option value="3">사회</option>
-              <option value="4">과학</option>
-              <option value="5">공강</option>
-            </select>
-          </td>
-          <td>
-            <select>
-              <option value="1">1-1</option>
-              <option value="2">1-2</option>
-              <option value="3">1-3</option>
-              <option value="4">1-4</option>
-            </select>
-          </td>
-          <td>
-            <div class="container">
-              <input type="text" name="st_name">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>
-            <select>
-              <option value="1">국어</option>
-              <option value="2">수학</option>
-              <option value="3">사회</option>
-              <option value="4">과학</option>
-              <option value="5">공강</option>
-              
-            </select>
-          </td>
-          <td>
-            <select>
-              <option value="1">1-1</option>
-              <option value="2">1-2</option>
-              <option value="3">1-3</option>
-              <option value="4">1-4</option>
-            </select>
-          </td>
-          <td>
-            <div class="container">
-              <input type="text" name="st_name">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>
-            <select>
-              <option value="1">국어</option>
-              <option value="2">수학</option>
-              <option value="3">사회</option>
-              <option value="4">과학</option>
-              <option value="5">공강</option>
-            </select>
-          </td>
-          <td>
-            <select>
-              <option value="1">1-1</option>
-              <option value="2">1-2</option>
-              <option value="3">1-3</option>
-              <option value="4">1-4</option>
-            </select>
-          </td>
-          <td>
-            <div class="container">
-              <input type="text" name="st_name" >
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>
-            <select>
-              <option value="1">국어</option>
-              <option value="2">수학</option>
-              <option value="3">사회</option>
-              <option value="4">과학</option>
-              <option value="5">공강</option>
-            </select>
-          </td>
-          <td>
-            <select>
-              <option value="1">1-1</option>
-              <option value="2">1-2</option>
-              <option value="3">1-3</option>
-              <option value="4">1-4</option>
-            </select>
-          </td>
-          <td>
-            <div class="container">
-              <input type="text" name="st_name">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>
-            <select>
-              <option value="1">국어</option>
-              <option value="2">수학</option>
-              <option value="3">사회</option>
-              <option value="4">과학</option>
-              <option value="5">공강</option>
-            </select>
-          </td>
-          <td>
-            <select>
-              <option value="1">1-1</option>
-              <option value="2">1-2</option>
-              <option value="3">1-3</option>
-              <option value="4">1-4</option>
-            </select>
-          </td>
-          <td>
-            <div class="container">
-              <input type="text" name="st_name">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>
-            <select>
-              <option value="1">국어</option>
-              <option value="2">수학</option>
-              <option value="3">사회</option>
-              <option value="4">과학</option>
-              <option value="5">공강</option>
-            </select>
-          </td>
-          <td>
-            <select>
-              <option value="1">1-1</option>
-              <option value="2">1-2</option>
-              <option value="3">1-3</option>
-              <option value="4">1-4</option>
-            </select>
-          </td>
-          <td>
-            <div class="container">
-              <input type="text" name="st_name">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>
-            <select>
-              <option value="1">국어</option>
-              <option value="2">수학</option>
-              <option value="3">사회</option>
-              <option value="4">과학</option>
-              <option value="5">공강</option>
-            </select>
-          </td>
-          <td>
-            <select>
-              <option value="1">1-1</option>
-              <option value="2">1-2</option>
-              <option value="3">1-3</option>
-              <option value="4">1-4</option>
-            </select>
-          </td>
-          <td>
-            <div class="container">
-              <input type="text" name="st_name">
-            </div>
-          </td>
-        </tr>
-      </table>
+   
+    <!-- daily timetable -->
+<div class="dailytimetable">
+  <table>
+    <tr>
+      <th>time</th>
+      <th>subject</th>
+      <th>classroom</th>
+      <th>memo</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>
+        <select>
+          <option value="1">국어</option>
+          <option value="2">수학</option>
+          <option value="3">사회</option>
+          <option value="4">과학</option>
+          <option value="5">공강</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="1">1-1</option>
+          <option value="2">1-2</option>
+          <option value="3">1-3</option>
+          <option value="4">1-4</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" name="st_name">
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <select>
+          <option value="1">국어</option>
+          <option value="2">수학</option>
+          <option value="3">사회</option>
+          <option value="4">과학</option>
+          <option value="5">공강</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="1">1-1</option>
+          <option value="2">1-2</option>
+          <option value="3">1-3</option>
+          <option value="4">1-4</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" name="st_name">
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <select>
+          <option value="1">국어</option>
+          <option value="2">수학</option>
+          <option value="3">사회</option>
+          <option value="4">과학</option>
+          <option value="5">공강</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="1">1-1</option>
+          <option value="2">1-2</option>
+          <option value="3">1-3</option>
+          <option value="4">1-4</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" name="st_name">
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>
+        <select>
+          <option value="1">국어</option>
+          <option value="2">수학</option>
+          <option value="3">사회</option>
+          <option value="4">과학</option>
+          <option value="5">공강</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="1">1-1</option>
+          <option value="2">1-2</option>
+          <option value="3">1-3</option>
+          <option value="4">1-4</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" name="st_name">
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>
+        <select>
+          <option value="1">국어</option>
+          <option value="2">수학</option>
+          <option value="3">사회</option>
+          <option value="4">과학</option>
+          <option value="5">공강</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="1">1-1</option>
+          <option value="2">1-2</option>
+          <option value="3">1-3</option>
+          <option value="4">1-4</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" name="st_name">
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>
+        <select>
+          <option value="1">국어</option>
+          <option value="2">수학</option>
+          <option value="3">사회</option>
+          <option value="4">과학</option>
+          <option value="5">공강</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="1">1-1</option>
+          <option value="2">1-2</option>
+          <option value="3">1-3</option>
+          <option value="4">1-4</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" name="st_name">
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>
+        <select>
+          <option value="1">국어</option>
+          <option value="2">수학</option>
+          <option value="3">사회</option>
+          <option value="4">과학</option>
+          <option value="5">공강</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="1">1-1</option>
+          <option value="2">1-2</option>
+          <option value="3">1-3</option>
+          <option value="4">1-4</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" name="st_name">
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>
+        <select>
+          <option value="1">국어</option>
+          <option value="2">수학</option>
+          <option value="3">사회</option>
+          <option value="4">과학</option>
+          <option value="5">공강</option>
+        </select>
+      </td>
+      <td>
+        <select>
+          <option value="1">1-1</option>
+          <option value="2">1-2</option>
+          <option value="3">1-3</option>
+          <option value="4">1-4</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" name="st_name">
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- checklist -->
+<div class="checklist">
+  <div class="flex-item" id="checklist-container">
+    <h2>Checklist</h2>
+    <div class="cklist" id="task1">
+      <input type="checkbox">
+      <input type="text" name="task1" value="Task 1" onclick="clearText(this)">
+      <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
     </div>
-  <div class="checklist" style="display: inline-flex; flex-direction: row; justify-content: center;">
-    <div class="row" style="text-align: center;" id="checklist-container">
-      <p style="text-align: center;">체크리스트</p>
-      <div class="container">
-        <input type="checkbox"> <input type="text" name="st_name">
-        <span class="delete-btn" onclick="deleteChecklistItem(this)">삭제</span>
-      </div>
-        <button onclick="addChecklistItem()">추가하기</button>
-      </div>
+    <div class="cklist" id="task2">
+      <input type="checkbox">
+      <input type="text" name="task2" value="Task 2" onclick="clearText(this)">
+      <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
     </div>
+    <div class="cklist" id="task3">
+      <input type="checkbox">
+      <input type="text" name="task3" value="Task 3" onclick="clearText(this)">
+      <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+    </div>
+    <button class="add-btn" onclick="addTask()">Add</button>
   </div>
 </div>
 
-<!-- <div class="memo">
-  <textarea rows="4" cols="50"></textarea>
-</div> -->
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous">
-  </script>
-  <script>
-    var itemCount = 1;
-  
-    function addChecklistItem() {
-      var container = document.getElementById('checklist-container');
-      var newItem = document.createElement('div');
-      newItem.classList.add('container');
-      newItem.innerHTML = '<input type="checkbox"> <input type="text" name="st_name"> <span class="delete-btn" onclick="deleteChecklistItem(this)">삭제</span>';
-      container.insertBefore(newItem, container.lastElementChild);
-    }
-  
-    function deleteChecklistItem(element) {
-      var container = document.getElementById('checklist-container');
-      var itemToDelete = element.parentNode;
-      container.removeChild(itemToDelete);
-    }
-  </script>
-</body>
+<style>
+  .add-btn,
+  .delete-btn {
+    background-color: #000;
+    color: #fff;
+  }
+</style>
 
-</html>
+<script>
+  function addTask() {
+    var checklistContainer = document.getElementById('checklist-container');
+    var newTask = document.createElement('div');
+    newTask.className = 'cklist';
+    newTask.innerHTML = `
+      <input type="checkbox">
+      <input type="text" name="newTask" value="New Task" onclick="clearText(this)">
+      <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+    `;
+    checklistContainer.insertBefore(newTask, document.querySelector('.add-btn'));
+  }
+
+  function deleteTask(button) {
+    var task = button.parentNode;
+    task.parentNode.removeChild(task);
+  }
+
+  function clearText(input) {
+    input.value = '';
+  }
+</script>
