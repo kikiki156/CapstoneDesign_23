@@ -34,11 +34,12 @@
 
         .content {
             margin-top: 20px;
+            max-width: 90%; 
+            margin: 0 auto;
         }
 
         #calendar {
-            max-width: 90%;
-            margin: 0 auto;
+            idth: 100%; 
             background-color: #fff;
             border-radius: 15px;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
@@ -165,19 +166,13 @@
                     }
                 },
                 eventClick: function (info) {
-                    var confirmation = prompt('이벤트를 수정, 삭제 또는 취소하시겠습니까? (수정/삭제/취소)');
-                    if (confirmation === '수정') {
-                        var newTitle = prompt('새로운 일정 제목:');
-                        if (newTitle) {
-                            info.event.setProp('title', newTitle);
-                        }
-                    } else if (confirmation === '삭제') {
-                        info.event.remove();
-                    } else if (confirmation === '취소') {
-                        // 아무 작업도 수행하지 않음
-                    }
+                // 수정 창을 띄우기 전에 바로 수정할 수 있도록 변경
+                var newTitle = prompt('일정 제목을 수정하세요:', info.event.title);
+                if (newTitle !== null) {
+                    info.event.setProp('title', newTitle);
                 }
-            });
+            }
+        });
 
             calendar.render();
         });
