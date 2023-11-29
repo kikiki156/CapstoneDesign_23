@@ -179,10 +179,57 @@
       </label>
     </div>
     <button onclick="location.href='index.html'" class="btn btn-primary w-100 py-2" type="button">Sign in</button>
+
+    <div class="text-center mt-3">
+      <p class="mb-2">Don't have an account? <span class="text-primary cursor-pointer" id="showSignUp">Sign up</span></p>
+      <div id="signupForm" class="d-none">
+        <div class="mb-3">
+          <label for="signupName" class="form-label">이름</label>
+          <input type="text" class="form-control" id="signupName" required>
+        </div>
+        <div class="mb-3">
+          <label for="signupAge" class="form-label">나이</label>
+          <input type="number" class="form-control" id="signupAge" required>
+        </div>
+        <div class="mb-3">
+          <label for="signupEmail" class="form-label">이메일</label>
+          <input type="email" class="form-control" id="signupEmail" required>
+        </div>
+        <div class="mb-3">
+          <label for="signupPhone" class="form-label">전화번호</label>
+          <input type="tel" class="form-control" id="signupPhone" required>
+        </div>
+        <button type="button" class="btn btn-success w-100 py-2" onclick="submitSignupForm()">Sign up</button>
+        <button type="button" class="btn btn-secondary w-100 py-2" onclick="toggleSignupForm()">Cancel</button>
+      </div>
+    </div>
+
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2023.10.27</p>
   </form>
 </main>
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-    </body>
+<script>
+  document.getElementById('showSignUp').addEventListener('click', function() {
+    var signupForm = document.getElementById('signupForm');
+    signupForm.classList.toggle('d-none');
+  });
+  function toggleSignupForm() {
+    var signupForm = document.getElementById("signupForm");
+
+    if (signupForm.style.display === "none") {
+      signupForm.style.display = "block";
+    } else {
+      signupForm.style.display = "none";
+    }
+  }
+
+  // 회원가입 폼 제출 함수 (제출 동작을 여기에 추가하세요)
+  function submitSignupForm() {
+    // 여기에 회원가입 폼을 제출하는 동작을 추가하세요.
+    // 예: 데이터를 수집하고 서버에 전송하는 등의 동작이 포함될 수 있습니다.
+  }
+</script>
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
 </html>
