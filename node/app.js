@@ -4,7 +4,6 @@ const app = express();
 app.use(express.json());
 
 const connection = require('./controller/dbconn');
-// const mysqlConnection = require('./controller/dbconn');
 
 const port = process.env.SERVER_PORT || 3000;
 

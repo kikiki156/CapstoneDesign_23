@@ -16,11 +16,7 @@ pgConnection.connect((err) => {
     }
 });
 
-pgConnection.query("SELECT NOW()", (err, res) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(res.rows[0]);
-    }
-});
+pgConnection.query("SELECT NOW()")
+    .then((res) => console.log(res.rows[0]))
+    .catch((err) => console.log(err));
 module.exports = pgConnection;
