@@ -69,7 +69,7 @@ exports.checklistDelete = async function (req, res) {
     });
 }
 
-exports.cheklistUpdate = async function (req, res) {
+exports.checklistUpdate = async function (req, res) {
     console.log("cheklistUpdate");
     console.log(req.body);
     
