@@ -43,7 +43,7 @@ VALUES (1, '월', '교실',
 (SELECT user_id FROM edulog."user" WHERE user_login_id = 'teacher'));
 
 INSERT INTO edulog.share_schedule(schedule_id, user_id)
-VALUES ((SELECT schedule_id FROM edulog.schedule WHERE schedule_subject = '테스트 일정'),
+VALUES ((SELECT schedule_id FROM edulog.schedule WHERE schedule_title = '테스트 일정'),
 (SELECT user_id FROM edulog."user" WHERE user_login_id = 'teacher2'));
 
 INSERT INTO edulog.user_subject(user_id, subject_id, user_subject_hour)
