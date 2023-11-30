@@ -8,7 +8,7 @@ router.get("/loginpage", (req, res) => {
     res.render("settingpage/loginpage.html");
 });
 
-router.post("/loginpage", controller.acceptLogin);
+router.post("/loginpage/", controller.acceptLogin);
 
 router.post("/loginpage/create", controller.acceptCreate);
 

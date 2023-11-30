@@ -168,10 +168,34 @@
                 });
             }
 
-            // 회원가입 폼 제출 함수 
+            // 회원가입 폼 제출 함수
             function submitSignupForm() {
                 // 여기에 회원가입 폼을 제출하는 동작을 추가
+                var name = document.getElementById('signupName').value;
+                var email = document.getElementById('signupEmail').value;
+                var password = document.getElementById('signupPassword').value;
+                // Json 형태로 데이터를 전송
+                var data = {
+                    name: name,
+                    email: email,
+                    password: password
+                };
+
                 // 예: 데이터를 수집하고 서버에 전송하는 등의 동작이 포함
+                // 서버로 데이터를 전송
+                fetch(server + '/loginpage', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data),
+                }).then(function (response) {
+                    // 서버로부터 응답을 받으면 응답을 json 형태로 파싱
+                    return response.json();
+                }).then(function (json) {
+                    // 응답 데이터를 처리
+                    console.log(json);
+                });
             }
         </script>
 
