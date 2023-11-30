@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
+// const controller = require("../../controller/cocktails/cocktails");
+
 router.get("/monthpage", (req, res) => {
     console.log("monthpage");
-    res.send("monthpage");
-    // res.render("../../page/monthpage/main.html", { title: "Month Page" });
+    res.render("monthpage/index.html");
 });
 
 

@@ -3,9 +3,9 @@ const router = express.Router();
 
 // const controller = require("../../controller/cocktails/cocktails");
 
-router.get("/dailypage", (req, res) => {
-    console.log("dailypageeeeeeee");
-    res.render("index/index.html");
+router.get("/profilepage", (req, res) => {
+    console.log("profilepageeeeeeee");
+    res.render("index/profile.html");
 });
 
 
