@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "prestart": "npm i",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
@@ -13,6 +14,8 @@
     "express": "^4.18.2",
     "dotenv": "^5.0.1",
     "nodemon": "^1.17.3",
-    "ejs": "^2.5.7"
+    "ejs": "^2.5.7",
+    "request": "^2.83.0",
+    "pg": "^7.4.1"
   }
 }
