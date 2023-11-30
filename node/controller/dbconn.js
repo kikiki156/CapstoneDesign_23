@@ -1,22 +1,20 @@
-const pg = require('pg');
 const dotenv = require('dotenv');
-dotenv.config({path: './config/.env'});
-
+dotenv.config({ path: './config/.env' });
+const { Client } = require('pg');
 console.log(process.env.DB_USER);
 
-const pgConnection = new pg.Pool({
-    user: process.env.DB_USER, host: process.env.DB_HOST, database: process.env.DB_NAME, password: process.env.DB_PASSWD, port: process.env.DB_PORT,
-})
-
-pgConnection.connect((err) => {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Connected to database");
-    }
+const pgConnection = new Client({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWD,
+    port: process.env.DB_PORT,
 });
 
-pgConnection.query("SELECT NOW()")
-    .then((res) => console.log(res.rows[0]))
-    .catch((err) => console.log(err));
+pgConnection.connect();
+
+pgConnection.query("SET search_path = \'edulog\'", (err, res) => {
+    console.log(err, res);
+});
+
 module.exports = pgConnection;

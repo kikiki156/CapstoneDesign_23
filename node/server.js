@@ -5,7 +5,6 @@ const path = require("path");
 
 app.engine('html', require('ejs').renderFile);
 
-const connection = require('./controller/dbconn');
 app.set('view engine', 'ejs');
 app.use(express.static("static"));
 
