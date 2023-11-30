@@ -100,7 +100,7 @@
                         Remember me
                     </label>
                 </div>
-                <button onclick="location.href='../index/index.html'" class="btn btn-primary w-100 py-2" type="button">Sign in</button>
+                <button onclick="login()" class="btn btn-primary w-100 py-2" type="button">Sign in</button>
 
                 <div class="text-center mt-3">
                     <p class="mb-2">Don't have an account? <span class="text-primary cursor-pointer" id="showSignUp">Sign up</span></p>
@@ -127,6 +127,7 @@
         </main>
 
         <script>
+            const server = 'http://ec2-18-221-192-14.us-east-2.compute.amazonaws.com:3000';
             document.getElementById('showSignUp').addEventListener('click', function () {
                 var signupForm = document.getElementById('signupForm');
                 signupForm.classList.toggle('d-none');
@@ -140,6 +141,31 @@
                 } else {
                     signupForm.style.display = "none";
                 }
+            }
+
+            function login() {
+                var email = document.getElementById('floatingInput').value;
+                var password = document.getElementById('floatingPassword').value;
+                // Json 형태로 데이터를 전송
+                var data = {
+                    email: email,
+                    password: password
+                };
+
+                // 서버로 데이터를 전송
+                fetch(server + '/loginpage', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data),
+                }).then(function (response) {
+                    // 서버로부터 응답을 받으면 응답을 json 형태로 파싱
+                    return response.json();
+                }).then(function (json) {
+                    // 응답 데이터를 처리
+                    console.log(json);
+                });
             }
 
             // 회원가입 폼 제출 함수 
