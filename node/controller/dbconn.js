@@ -10,8 +10,11 @@ const pgConnection = new Client({
 
 pgConnection.connect();
 
-pgConnection.query("SET search_path = \"edulog\"", (err, res) => {
-    console.log(err, res);
+pgConnection.query("SELECT NOW()", (err, res) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(res.rows[0]);
+    }
 });
-
 module.exports = pgConnection;
