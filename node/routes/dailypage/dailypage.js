@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/dailypage", (req, res) => {
-    console.log("dailypage");
-    res.send("dailypage");
+    console.log("dailypageeeeeeee");
+    res.render("index/index.html");
 });
 
 

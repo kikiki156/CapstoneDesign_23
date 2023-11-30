@@ -15,8 +15,8 @@ const MonthpageRouter = require("./monthpage/monthpage");
 // const UserRouter = require("./user/user");
 // const BlogRouter = require("./blog/blog");
 
-router.use("/dailypage", DailypageRouter);
-router.use("/monthpage", MonthpageRouter);
+router.use("/", DailypageRouter);
+router.use("/", MonthpageRouter);
 // router.use("/cocktails", CocktailRouter);
 // router.use("/images", ImageRouter);
 // router.use("/bars", BarRouter);
