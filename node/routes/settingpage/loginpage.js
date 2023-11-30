@@ -10,7 +10,7 @@ router.get("/loginpage", (req, res) => {
 
 router.post("/loginpage", controller.acceptLogin);
 
-router.post("/create", controller.acceptCreate);
+router.post("/loginpage/create", controller.acceptCreate);
 
 
 module.exports = router;

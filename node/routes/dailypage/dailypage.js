@@ -8,8 +8,8 @@ router.get("/dailypage", (req, res) => {
     res.render("index/index.html");
 });
 
-router.post("/dailypage", controller.scheduleRead);
-router.post("/dailypage", controller.checklistRead);
+router.post("/scheduleRead", controller.scheduleRead);
+router.post("/checklistRead", controller.checklistRead);
 router.post("/scheduleCreate", controller.scheduleCreate);
 router.post("/scheduleDelete", controller.scheduleDelete);
 router.post("/scheduleUpdate", controller.scheduleUpdate);
