@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-// const controller = require("../../controller/cocktails/cocktails");
+// const controller = require("../../controller/weekpage/weekpage");
 
 router.get("/weekpage", (req, res) => {
     console.log("weekpage");

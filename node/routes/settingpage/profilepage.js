@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-// const controller = require("../../controller/cocktails/cocktails");
+// const controller = require("../../controller/settingpage/profilepage");
 
 router.get("/profilepage", (req, res) => {
     console.log("profilepageeeeeeee");
-    res.render("index/profile.html");
+    res.render("settingpage/profile.html");
 });
 
 
