@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/profilepage", (req, res) => {
     console.log("profilepageeeeeeee");
-    res.render("settingpage/profile.html");
+    res.render("settingpage/profilepage.html");
 });
 
 
