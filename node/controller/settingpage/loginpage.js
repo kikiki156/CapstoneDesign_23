@@ -20,7 +20,7 @@ async function _acceptLogin(body) {
 
     let query = '' +
         'SELECT user_id, user_name FROM edulog.user ' +
-        'WHERE user_email = $2 AND user_password = $3';
+        'WHERE user_email = $1 AND user_password = $2';
 
     let result = await pgConnection.query(query, [email, password]);
     console.log(result);
