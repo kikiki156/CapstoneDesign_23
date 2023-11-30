@@ -23,6 +23,7 @@ async function _acceptLogin(body) {
         'WHERE user_email = $2 AND user_password = $3';
 
     let result = await pgConnection.query(query, [email, password]);
+    console.log(result);
     if (result.rowCount === 0) {
         return {
             status: 404,
@@ -30,7 +31,6 @@ async function _acceptLogin(body) {
             name: null,
         }
     }
-    console.log(result.rows[0].user_id);
     return {
         status: 200,
         id: result.rows[0].user_id,
