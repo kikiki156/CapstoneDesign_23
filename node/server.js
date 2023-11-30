@@ -6,7 +6,7 @@ const path = require("path");
 app.engine('html', require('ejs').renderFile);
 
 app.set('view engine', 'ejs');
-
+app.use(express.static("static"));
 
 app.use(express.json());
 
