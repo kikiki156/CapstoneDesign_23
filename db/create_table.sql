@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS edulog.school (
 CREATE TABLE IF NOT EXISTS edulog.user (
     user_id SERIAL NOT NULL,
     user_name varchar(10) NOT NULL,
-    user_login_id varchar(20) NOT NULL,
+    user_email varchar(255) NOT NULL,
     user_password varchar(255) NOT NULL,
     role_id int NOT NULL,
     school_id int NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS edulog.user (
     user_deleted_at timestamp,
 
     PRIMARY KEY(user_id),
-    UNIQUE(user_login_id),
+    UNIQUE(user_email),
     FOREIGN KEY(role_id) REFERENCES edulog.role(role_id)
     ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY(school_id) REFERENCES edulog.school(school_id)
