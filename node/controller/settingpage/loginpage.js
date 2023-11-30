@@ -7,7 +7,18 @@ exports.acceptLogin = async function (req, res) {
     console.log(req.body);
     
     await _acceptLogin(req.body).then((response) => {
-        res.send(response);
+        res.status(response.status).send(response);
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+exports.acceptCreate = async function (req, res) {
+    console.log("acceptCreate");
+    console.log(req.body);
+    
+    await _acceptCreate(req.body).then((response) => {
+        res.status(response.status).send(response);
     }).catch((err) => {
         console.log(err);
     });
@@ -18,12 +29,15 @@ async function _acceptLogin(body) {
     const email = body.email;
     const password = body.password;
 
+    // 이메일과 비밀번호를 통해 사용자 정보를 가져온다.
     let query = '' +
-        'SELECT user_id, user_name FROM edulog.user ' +
-        'WHERE user_email = $1 AND user_password = $2';
+        'SELECT user_id, user_name, user_password FROM edulog.user ' +
+        'WHERE user_email = $1';
 
     let result = await pgConnection.query(query, [email, password]);
     console.log(result);
+
+    // 사용자 정보가 없으면 404를 반환한다.
     if (result.rowCount === 0) {
         return {
             status: 404,
@@ -31,7 +45,15 @@ async function _acceptLogin(body) {
             name: null,
         }
     }
-    return {
+    const password_db = result.rows[0].user_password;
+    // 비밀번호가 틀리면 401을 반환한다.
+    if (password_db !== password) {
+        return {
+            status: 401,
+            id: 0,
+            name: null,
+        }
+    } else return { // 비밀번호가 맞으면 200을 반환한다.
         status: 200,
         id: result.rows[0].user_id,
         name: result.rows[0].user_name,
@@ -59,6 +81,7 @@ async function _acceptCreate(body) {
         'VALUES ($1, $2, $3)';
 
     let result = null;
+
     try {
         result = await pgConnection.query(insert_query, [name, email, password]);
     } catch (err) {
@@ -72,5 +95,4 @@ async function _acceptCreate(body) {
         status: 200,
     };
 }
-
 

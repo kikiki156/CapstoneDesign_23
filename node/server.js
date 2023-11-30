@@ -11,6 +11,7 @@ app.use(express.static("static"));
 app.use(express.json());
 
 
+
 const port = process.env.SERVER_PORT || 3000;
 
 app.set("port", port);
