@@ -60,17 +60,6 @@ async function _acceptLogin(body) {
     };
 }
 
-exports.acceptCreate = async function (req, res) {
-    console.log("acceptCreate");
-    console.log(req.body);
-    
-    await _acceptCreate(req.body).then((response) => {
-        res.send(response);
-    }).catch((err) => {
-        console.log(err);
-    });
-}
-
 async function _acceptCreate(body) {
     const name = body.name;
     const email = body.email;
@@ -79,13 +68,14 @@ async function _acceptCreate(body) {
     let insert_query = '' +
         'INSERT INTO edulog.user (user_name, user_email, user_password) ' +
         'VALUES ($1, $2, $3)';
-
+    console.log('**************************************');
     let result = null;
 
     try {
         result = await pgConnection.query(insert_query, [name, email, password]);
     } catch (err) {
         console.log(err);
+        console.log("이미 존재하는 이메일입니다.");
         return {
             status: 409,
         }

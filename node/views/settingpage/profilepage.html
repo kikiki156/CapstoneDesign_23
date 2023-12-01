@@ -147,6 +147,37 @@
         <button onclick="location.href='../index/index.html'" id="saveProfileButton" class="btn btn-primary">저장</button>
     </div>
 
+    <!-- 버튼누르면 자동으로 저장되게 하기 -->
+    <script>
+        document.getElementById('saveProfileButton').addEventListener('click', function () {
+            var school = document.getElementById('schoolInput').value;
+            var teacherRole = document.getElementById('teacherRole').value;
+            var selectedGrade = document.getElementById('selectedGrade').value;
+            var selectedClass = document.getElementById('selectedClass').value;
+            var selectedSubject = document.getElementById('selectedSubject').value;
+
+            // Json 형태로 데이터를 전송
+            var data = {
+                school: school,
+                teacherRole: teacherRole,
+                selectedGrade: selectedGrade,
+                selectedClass: selectedClass,
+                selectedSubject: selectedSubject
+            };
+
+            // 서버로 데이터 전송
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://ec2-18-221-192-14.us-east-2.compute.amazonaws.com:3000/profile');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify(data));
+
+            // 서버로부터 응답이 오면
+            xhr.addEventListener('load', function () {
+                var result = JSON.parse(xhr.responseText);
+                console.log(result);
+            });
+        });
+    </script>
     <script src="profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
