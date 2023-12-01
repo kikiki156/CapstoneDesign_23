@@ -68,7 +68,6 @@ async function _acceptCreate(body) {
     let insert_query = '' +
         'INSERT INTO edulog.user (user_name, user_email, user_password) ' +
         'VALUES ($1, $2, $3)';
-    console.log('**************************************');
     let result = null;
 
     try {
