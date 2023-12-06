@@ -223,12 +223,11 @@
                 </tr>
             </table>
 
-            <!-- Edit Mode Buttons -->
-            <div class="button-container">
-                <button id="editModeButton">수정</button>
-                <div id="editInstructions" style="display: none;">수정할 항목을 고르세요</div>
-                <input type="text" id="editInput" style="display: none;">
-            </div>
+           <!-- Edit Mode Buttons -->
+           <div class="button-container">
+            <button id="editModeButton" onclick="toggleEditMode()">수정</button>
+            <div id="editInstructions" style="display: none;">수정할 항목을 고르세요</div>
+            <input type="text" id="editInput" style="display: none;">
         </div>
 
         <!-- Side Panel -->
@@ -251,6 +250,49 @@
         </div>
     </div>
 
+    <script>
+        // 수정 모드를 토글하는 함수
+        function toggleEditMode() {
+            var editInstructions = document.getElementById("editInstructions");
+            var editInput = document.getElementById("editInput");
+    
+            if (editInstructions.style.display === "none") {
+                // 수정 모드 시작
+                editInstructions.style.display = "block";
+                editInput.style.display = "block";
+                editInput.focus(); // 수정할 항목에 포커스를 맞춥니다.
+            } else {
+                // 수정 모드 종료
+                editInstructions.style.display = "none";
+                editInput.style.display = "none";
+    
+                // 수정된 내용으로 과목 업데이트
+                var selectedSubject = document.querySelector(".selected");
+                if (selectedSubject) {
+                    selectedSubject.innerText = editInput.value;
+                    selectedSubject.classList.remove("selected");
+                }
+            }
+        }
+    
+        // 과목 클릭 시 수정 모드에서 해당 과목의 내용을 가져오도록 하는 이벤트 리스너
+        var subjects = document.getElementsByClassName("subject");
+        for (var i = 0; i < subjects.length; i++) {
+            subjects[i].addEventListener("click", function () {
+                if (editInstructions.style.display === "block") {
+                    // 클릭한 과목을 선택 상태로 변경
+                    var selectedSubject = document.querySelector(".selected");
+                    if (selectedSubject) {
+                        selectedSubject.classList.remove("selected");
+                    }
+                    this.classList.add("selected");
+    
+                    var subjectName = this.innerText;
+                    document.getElementById("editInput").value = subjectName;
+                }
+            });
+        }
+    </script>
     <script src="live-clock.js"></script>
     <script src="weekpage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
