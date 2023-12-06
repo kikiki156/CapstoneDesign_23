@@ -136,7 +136,7 @@ async function _updateUserPreferences(user_id) {
 
     let result = await pgConnection.query(select_query);
 
-    // find the average of each taste, skip if favorite list is empty
+    
     let gentle = 0.0;
     let boozy = 0.0;
     let sweet = 0.0;
@@ -144,7 +144,7 @@ async function _updateUserPreferences(user_id) {
     let alcohol = 0.0;
 
     if (result.rowCount !== 0) {
-        // find if all gentle, boozy, sweet, dry, alcohol == 0.0, if so, skip
+        
         let count = 0;
         for (let i = 0; i < result.rowCount; i++) {
             let all_zero = true;
@@ -185,7 +185,7 @@ async function _updateUserPreferences(user_id) {
         let taste_id_result = await pgConnection.query(taste_id_query);
         let taste_id = taste_id_result.rows[0].taste_id;
 
-        // update user taste composition
+        
         let update_query = '' +
             'UPDATE moonshine.tastes ' +
             'SET gentle = $1, boozy = $2, sweet = $3, dry = $4, alcohol = $5 ' +
