@@ -24,10 +24,10 @@ async function _getClassHour(body) {
     let values = [user_id];
     let result = await pgConnection.query(query, values);
 
-    // result contains subject_id, user_subject_hour
+    
     console.log(result.rows);
 
-    // for each subject_id, make dictionary of user_subject_hour
+    
     let subject_name = {};
     let user_subject_hour = {};
 
