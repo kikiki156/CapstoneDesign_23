@@ -12,7 +12,7 @@ const ProfilepageRouter = require("./settingpage/profilepage");
 const LoginpageRouter = require("./settingpage/loginpage");
 
 router.get("/", (req, res) => {
-    // send to Login page
+    
     res.redirect("/loginpage");
 
 });
