@@ -37,7 +37,7 @@ async function _acceptLogin(body) {
     let result = await pgConnection.query(query, [email, password]);
     console.log(result);
 
-    // 사용자 정보가 없으면 404를 반환한다.
+    
     if (result.rowCount === 0) {
         return {
             status: 404,
@@ -46,14 +46,14 @@ async function _acceptLogin(body) {
         }
     }
     const password_db = result.rows[0].user_password;
-    // 비밀번호가 틀리면 401을 반환한다.
+    
     if (password_db !== password) {
         return {
             status: 401,
             id: 0,
             name: null,
         }
-    } else return { // 비밀번호가 맞으면 200을 반환한다.
+    } else return { 
         status: 200,
         id: result.rows[0].user_id,
         name: result.rows[0].user_name,
